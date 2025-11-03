@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Search from "../Search";
-import { Button } from "@mui/material";
 
 const Header = () => {
   return (
-    <header>
+    <header className="w-full">
+      {/* TOP STRIP */}
       <div className="top-strip py-2">
         <div className="container">
           <div className="flex items-center justify-between ">
@@ -38,58 +38,46 @@ const Header = () => {
         </div>
       </div>
 
-
-
-      
-      <div className="header py-4">
-        <div className="container flex items-center justify-between py-4">
-          <div className="col1 w-[25%]">
+      {/* MAIN HEADER */}
+      <div className="py-4 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full sm:w-auto mt-3 sm:mt-0">
+          {/* LOGO */}
+          <div className="flex justify-center sm:justify-start w-full sm:w-auto">
             <Link to="/">
               <motion.img
                 src="/logoo.png"
                 alt="Logo"
-                className="w-[250px] sm:w-[200px] h-auto cursor-pointer"
-                initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  filter: "drop-shadow(0 0 8px rgba(99,102,241,0.3))",
-                }}
-                transition={{
-                  duration: 3,
-                  ease: [0.25, 0.8, 0.25, 1],
-                }}
+                className="w-[180px] sm:w-[220px] md:w-[250px] h-auto cursor-pointer"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
                 whileHover={{
-                  scale: 1.08,
-                  rotate: 3,
-                  filter: "drop-shadow(0 0 14px rgba(99,102,241,0.5))",
-                  transition: { type: "spring", stiffness: 250 },
+                  scale: 1.05,
+                  rotate: 2,
+                  filter: "drop-shadow(0 0 10px rgba(99,102,241,0.4))",
                 }}
-                whileTap={{
-                  scale: 0.96,
-                  filter: "drop-shadow(0 0 4px rgba(99,102,241,0.3))",
-                }}
+                whileTap={{ scale: 0.95 }}
               />
             </Link>
           </div>
-          <div className="col2 w-[45%]">
+
+          {/* SEARCH BAR */}
+          <div className="w-full sm:flex-1 sm:px-4">
             <Search />
           </div>
 
-          <div className="col3 w-[30%] flex items-center justify-center gap-6">
-            {/* LOGIN BUTTON */}
+          {/* BUTTONS */}
+          <div className="hidden sm:flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 w-full sm:w-auto mt-3 sm:mt-0">
+            {/* LOGIN */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/login">
-                <button className="relative w-36 h-12 rounded-xl bg-gray-800 text-white font-semibold overflow-hidden border border-gray-700 shadow-md">
+                <button className="relative w-32 sm:w-36 h-11 rounded-xl bg-gray-800 text-white font-semibold overflow-hidden border border-gray-700 shadow-md">
                   <span className="relative z-10">Login</span>
-
-                  {/* moving glowing ball */}
                   <motion.div
                     className="absolute top-1/2 left-0 w-10 h-10 rounded-full bg-blue-500 blur-md opacity-70"
                     animate={{
                       x: ["0%", "120%", "0%"],
-                      y: ["-50%", "-50%", "-50%"], // keeps centered
+                      y: ["-50%", "-50%", "-50%"],
                     }}
                     transition={{
                       duration: 3,
@@ -101,13 +89,13 @@ const Header = () => {
               </Link>
             </motion.div>
 
-            {/* REGISTER BUTTON */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            {/* REGISTER */}
+            <motion.div  whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="relative w-32 sm:w-36 h-11 rounded-xl bg-gray-800 text-white font-semibold overflow-hidden border border-gray-700 shadow-md">
               <Link to="/register">
-                <button className="relative w-36 h-12 rounded-xl bg-gray-800 text-white font-semibold overflow-hidden border border-gray-700 shadow-md">
+                <button className="relative w-32 sm:w-36 h-11 rounded-xl bg-gray-800 text-white font-semibold overflow-hidden border border-gray-700 shadow-md">
                   <span className="relative z-10">Register</span>
-
-                  {/* glowing ball for register */}
                   <motion.div
                     className="absolute top-1/2 left-0 w-10 h-10 rounded-full bg-pink-500 blur-md opacity-70"
                     animate={{
