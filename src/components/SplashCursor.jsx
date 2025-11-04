@@ -1050,7 +1050,7 @@ function SplashCursor({
     <div 
       style={{
         position: 'fixed',
-        top: 150,
+        top: 190,
         left: 0,
         bottom: 0,
         zIndex: 50,
